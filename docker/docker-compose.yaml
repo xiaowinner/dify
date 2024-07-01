@@ -388,7 +388,7 @@ services:
 
   # Frontend web application.
   web:
-    image: langgenius/dify-web:0.6.11
+    image: xiaowinner/dify-web:0.1.3
     restart: always
     environment:
       # The base URL of console application api server, refers to the Console base URL of WEB service if console domain is
