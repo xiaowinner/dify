@@ -49,7 +49,7 @@ const translation = {
         tip: 'Sie können Dateien hochladen, von der Website oder von Web-Apps wie Notion, GitHub usw. synchronisieren.',
       },
       sync: {
-        tip: 'Dify wird periodisch Dateien von Ihrem Notion herunterladen und die Verarbeitung abschließen.',
+        tip: 'Cyclical wird periodisch Dateien von Ihrem Notion herunterladen und die Verarbeitung abschließen.',
       },
     },
     delete: {

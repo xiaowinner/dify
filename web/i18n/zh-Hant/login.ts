@@ -42,7 +42,7 @@ const translation = {
     passwordInvalid: '密碼必須包含字母和數字，且長度不小於8位',
   },
   license: {
-    tip: '啟動 Dify 社群版之前, 請閱讀 GitHub 上的',
+    tip: '啟動 Cyclical 社群版之前, 請閱讀 GitHub 上的',
     link: '開源協議',
   },
   join: '加入',

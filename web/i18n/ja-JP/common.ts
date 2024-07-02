@@ -354,8 +354,8 @@ const translation = {
   about: {
     changeLog: '変更ログ',
     updateNow: '今すぐ更新',
-    nowAvailable: 'Dify {{version}} が利用可能です。',
-    latestAvailable: 'Dify {{version}} が最新バージョンです。',
+    nowAvailable: 'Cyclical {{version}} が利用可能です。',
+    latestAvailable: 'Cyclical {{version}} が最新バージョンです。',
   },
   appMenus: {
     overview: '概要',

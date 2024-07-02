@@ -42,7 +42,7 @@ const translation = {
     passwordInvalid: 'Пароль повинен містити літери та цифри, а довжина повинна бути більшою за 8',
   },
   license: {
-    tip: 'Перед запуском Dify Community Edition ознайомтеся з ліцензією з відкритим кодом на GitHub',
+    tip: 'Перед запуском Cyclical Community Edition ознайомтеся з ліцензією з відкритим кодом на GitHub',
     link: 'Ліцензія з відкритим кодом',
   },
   join: 'Приєднуйтесь',

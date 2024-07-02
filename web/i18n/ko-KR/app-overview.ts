@@ -68,7 +68,7 @@ const translation = {
         explanation: '챗봇 앱을 웹사이트에 임베드하는 방법을 선택하세요.',
         iframe: '웹사이트의 원하는 위치에 챗봇 앱을 추가하려면 이 iframe을 HTML 코드에 추가하세요.',
         scripts: '웹사이트의 우측 하단에 챗봇 앱을 추가하려면 이 코드를 HTML에 추가하세요.',
-        chromePlugin: 'Dify Chatbot Chrome 확장 프로그램 설치',
+        chromePlugin: 'Cyclical Chatbot Chrome 확장 프로그램 설치',
         copied: '복사되었습니다',
         copy: '복사',
       },

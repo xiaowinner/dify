@@ -71,7 +71,7 @@ const translation = {
         explanation: 'チャットアプリをウェブサイトに埋め込む方法を選択します。',
         iframe: 'ウェブサイトの任意の場所にチャットアプリを追加するには、このiframeをHTMLコードに追加してください。',
         scripts: 'ウェブサイトの右下にチャットアプリを追加するには、このコードをHTMLに追加してください。',
-        chromePlugin: 'Dify Chatbot Chrome拡張機能をインストール',
+        chromePlugin: 'Cyclical Chatbot Chrome拡張機能をインストール',
         copied: 'コピーしました',
         copy: 'コピー',
       },

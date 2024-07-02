@@ -1,7 +1,7 @@
 const translation = {
   title: 'Tools',
   createCustomTool: 'Create Custom Tool',
-  customToolTip: 'Learn more about Dify custom tools',
+  customToolTip: 'Learn more about Cyclical custom tools',
   type: {
     all: 'All',
     builtIn: 'Built-in',

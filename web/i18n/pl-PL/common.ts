@@ -159,7 +159,7 @@ const translation = {
     confirmPassword: 'Potwierdź hasło',
     notEqual: 'Dwa hasła są różne.',
     langGeniusAccount: 'Konto Dify',
-    langGeniusAccountTip: 'Twoje konto Dify i powiązane dane użytkownika.',
+    langGeniusAccountTip: 'Twoje konto Cyclical i powiązane dane użytkownika.',
     editName: 'Edytuj nazwę',
     showAppLength: 'Pokaż {{length}} aplikacje',
     delete: 'Usuń konto',
@@ -239,7 +239,7 @@ const translation = {
       openaiHosted: 'Hostowany OpenAI',
       onTrial: 'NA PROBĘ',
       exhausted: 'WYCZERPANY LIMIT',
-      desc: 'Usługa hostowania OpenAI dostarczana przez Dify pozwala korzystać z modeli takich jak GPT-3.5. Przed wyczerpaniem limitu próbnego należy skonfigurować inne dostawców modeli.',
+      desc: 'Usługa hostowania OpenAI dostarczana przez Cyclical pozwala korzystać z modeli takich jak GPT-3.5. Przed wyczerpaniem limitu próbnego należy skonfigurować inne dostawców modeli.',
       callTimes: 'Czasy wywołań',
       usedUp: 'Limit próbny został wyczerpany. Dodaj własnego dostawcę modeli.',
       useYourModel: 'Aktualnie używany jest własny dostawca modeli.',
@@ -417,8 +417,8 @@ const translation = {
   about: {
     changeLog: 'Dziennik zmian',
     updateNow: 'Aktualizuj teraz',
-    nowAvailable: 'Dify {{version}} jest teraz dostępny.',
-    latestAvailable: 'Dify {{version}} jest najnowszą dostępną wersją.',
+    nowAvailable: 'Cyclical {{version}} jest teraz dostępny.',
+    latestAvailable: 'Cyclical {{version}} jest najnowszą dostępną wersją.',
   },
   appMenus: {
     overview: 'Przegląd',
