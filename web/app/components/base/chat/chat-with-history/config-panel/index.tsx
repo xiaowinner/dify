@@ -149,7 +149,7 @@ const ConfigPanel = () => {
                 : (
                   <div className={`flex items-center justify-end ${isMobile && 'w-full'}`}>
                     <div className='flex items-center pr-3 space-x-3'>
-                      <span className='uppercase'>{t('share.chat.powerBy')}</span>
+                      <span className='uppercase'>{t('')}</span>
                       {
                         customConfig?.replace_webapp_logo
                           ? <img src={customConfig?.replace_webapp_logo} alt='logo' className='block w-auto h-5' />
