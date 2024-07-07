@@ -33,7 +33,7 @@
       "name": "Español (España)",
       "prompt_name": "Spanish",
       "example": "Saluton, Cyclical!",
-      "supported": false
+      "supported": true
     },
     {
       "value": "fr-FR",
