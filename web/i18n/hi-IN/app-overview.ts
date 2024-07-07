@@ -99,7 +99,7 @@ const translation = {
           step1: 'क्लाइंट कोड को फोर्क करें और संशोधित करें',
           step1Tip:
             'स्रोत कोड को अपने GitHub खाते में फोर्क करने और कोड संशोधित करने के लिए यहां क्लिक करें',
-          step1Operation: 'Dify-WebClient',
+          step1Operation: 'Cyclical-WebClient',
           step2: 'Vercel पर डिप्लॉय करें',
           step2Tip:
             'भंडार को Vercel में आयात करने और डिप्लॉय करने के लिए यहां क्लिक करें',

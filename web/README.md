@@ -76,7 +76,7 @@ If your IDE is VSCode, rename `web/.vscode/settings.example.json` to `web/.vscod
 
 ## Documentation
 
-Visit <https://docs.dify.ai/getting-started/readme> to view the full documentation.
+Visit <https://cyclical.cn/getting-started/readme> to view the full documentation.
 
 ## Community
 

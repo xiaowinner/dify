@@ -151,7 +151,7 @@ const translation = {
     newPassword: 'Parolă nouă',
     confirmPassword: 'Confirmă parola',
     notEqual: 'Cele două parole sunt diferite.',
-    langGeniusAccount: 'Cont Dify',
+    langGeniusAccount: 'Cont Cyclical',
     langGeniusAccountTip: 'Contul Cyclical și datele de utilizator asociate.',
     editName: 'Editează Nume',
     showAppLength: 'Afișează {{length}} aplicații',
@@ -371,9 +371,9 @@ const translation = {
     },
   },
   apiBasedExtension: {
-    title: 'Extensiile bazate pe API oferă o gestionare centralizată a API-urilor, simplificând configurația pentru o utilizare ușoară în aplicațiile Dify.',
+    title: 'Extensiile bazate pe API oferă o gestionare centralizată a API-urilor, simplificând configurația pentru o utilizare ușoară în aplicațiile Cyclical.',
     link: 'Aflați cum să dezvoltați propria extensie bazată pe API.',
-    linkUrl: 'https://docs.dify.ai/features/extension/api_based_extension',
+    linkUrl: 'https://cyclical.cn/features/extension/api_based_extension',
     add: 'Adăugați extensie API',
     selector: {
       title: 'Extensie API',

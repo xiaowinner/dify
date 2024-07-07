@@ -158,7 +158,7 @@ const translation = {
     newPassword: 'Nowe hasło',
     confirmPassword: 'Potwierdź hasło',
     notEqual: 'Dwa hasła są różne.',
-    langGeniusAccount: 'Konto Dify',
+    langGeniusAccount: 'Konto Cyclical',
     langGeniusAccountTip: 'Twoje konto Cyclical i powiązane dane użytkownika.',
     editName: 'Edytuj nazwę',
     showAppLength: 'Pokaż {{length}} aplikacje',
@@ -190,7 +190,7 @@ const translation = {
     invitedAsRole: 'Zaproszony jako użytkownik typu {{role}}',
     invitationSent: 'Zaproszenie wysłane',
     invitationSentTip:
-      'Zaproszenie zostało wysłane, a oni mogą zalogować się do Dify, aby uzyskać dostęp do danych Twojego zespołu.',
+      'Zaproszenie zostało wysłane, a oni mogą zalogować się do Cyclical, aby uzyskać dostęp do danych Twojego zespołu.',
     invitationLink: 'Link zaproszenia',
     failedinvitationEmails: 'Poniższe osoby nie zostały pomyślnie zaproszone',
     ok: 'OK',
@@ -386,9 +386,9 @@ const translation = {
   },
   apiBasedExtension: {
     title:
-      'Rozszerzenia oparte na interfejsie API zapewniają scentralizowane zarządzanie interfejsami API, upraszczając konfigurację dla łatwego użytkowania w aplikacjach Dify.',
+      'Rozszerzenia oparte na interfejsie API zapewniają scentralizowane zarządzanie interfejsami API, upraszczając konfigurację dla łatwego użytkowania w aplikacjach Cyclical.',
     link: 'Dowiedz się, jak opracować własne rozszerzenie interfejsu API.',
-    linkUrl: 'https://docs.dify.ai/features/extension/api_based_extension',
+    linkUrl: 'https://cyclical.cn/features/extension/api_based_extension',
     add: 'Dodaj rozszerzenie interfejsu API',
     selector: {
       title: 'Rozszerzenie interfejsu API',

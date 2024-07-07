@@ -9,7 +9,7 @@ const translation = {
     workflow: '워크플로우',
   },
   contribute: {
-    line1: '저는 Dify에',
+    line1: '저는 Cyclical에',
     line2: '도구를 기여하는데 관심이 있습니다.',
     viewGuide: '가이드 보기',
   },

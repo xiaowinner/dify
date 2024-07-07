@@ -72,7 +72,7 @@ const OneMoreStep = () => {
       dispatch({ type: 'failed', payload: null })
     }
     if (data)
-      router.push('/apps')
+      router.push('/explore/apps')
   }, [data, error])
 
   return (
@@ -161,7 +161,7 @@ const OneMoreStep = () => {
             <Link
               className='text-primary-600'
               target='_blank' rel='noopener noreferrer'
-              href={'https://docs.dify.ai/user-agreement/open-source'}
+              href={'https://cyclical.cn/user-agreement/open-source'}
             >{t('login.license.link')}</Link>
           </div>
         </div>

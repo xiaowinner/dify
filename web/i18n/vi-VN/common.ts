@@ -151,7 +151,7 @@ const translation = {
     newPassword: 'Mật khẩu mới',
     confirmPassword: 'Xác nhận mật khẩu',
     notEqual: 'Hai mật khẩu không giống nhau.',
-    langGeniusAccount: 'Tài khoản Dify',
+    langGeniusAccount: 'Tài khoản Cyclical',
     langGeniusAccountTip: 'Tài khoản Cyclical của bạn và dữ liệu người dùng liên quan.',
     editName: 'Chỉnh sửa Tên',
     showAppLength: 'Hiển thị {{length}} ứng dụng',
@@ -371,9 +371,9 @@ const translation = {
     },
   },
   apiBasedExtension: {
-    title: 'Các tiện ích API cung cấp quản lý API tập trung, giúp cấu hình dễ dàng sử dụng trên các ứng dụng của Dify.',
+    title: 'Các tiện ích API cung cấp quản lý API tập trung, giúp cấu hình dễ dàng sử dụng trên các ứng dụng của Cyclical.',
     link: 'Tìm hiểu cách phát triển Phần mở rộng API của riêng bạn.',
-    linkUrl: 'https://docs.dify.ai/features/extension/api_based_extension',
+    linkUrl: 'https://cyclical.cn/features/extension/api_based_extension',
     add: 'Thêm Phần mở rộng API',
     selector: {
       title: 'Phần mở rộng API',

@@ -89,7 +89,7 @@ const translation = {
           name: 'Fork 客户端代码修改后部署到 Vercel（推荐）',
           step1: 'Fork 客户端代码并修改',
           step1Tip: '点击此处 Fork 源码到你的 GitHub 中，然后修改代码',
-          step1Operation: 'Dify-WebClient',
+          step1Operation: 'Cyclical-WebClient',
           step2: '部署到 Vercel 中',
           step2Tip: '点击此处将仓库导入到 Vercel 中部署',
           step2Operation: '导入仓库',

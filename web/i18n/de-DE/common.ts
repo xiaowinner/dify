@@ -152,8 +152,8 @@ const translation = {
     newPassword: 'Neues Passwort',
     confirmPassword: 'Passwort bestätigen',
     notEqual: 'Die Passwörter sind unterschiedlich.',
-    langGeniusAccount: 'Dify-Konto',
-    langGeniusAccountTip: 'Ihr Dify-Konto und zugehörige Benutzerdaten.',
+    langGeniusAccount: 'Cyclical-Konto',
+    langGeniusAccountTip: 'Ihr Cyclical-Konto und zugehörige Benutzerdaten.',
     editName: 'Namen bearbeiten',
     showAppLength: '{{length}} Apps anzeigen',
     delete: 'Konto löschen',
@@ -372,9 +372,9 @@ const translation = {
     },
   },
   apiBasedExtension: {
-    title: 'API-Erweiterungen bieten zentralisiertes API-Management und vereinfachen die Konfiguration für eine einfache Verwendung in Difys Anwendungen.',
+    title: 'API-Erweiterungen bieten zentralisiertes API-Management und vereinfachen die Konfiguration für eine einfache Verwendung in Cyclical Anwendungen.',
     link: 'Erfahren Sie, wie Sie Ihre eigene API-Erweiterung entwickeln.',
-    linkUrl: 'https://docs.dify.ai/features/extension/api_based_extension',
+    linkUrl: 'https://cyclical.cn/features/extension/api_based_extension',
     add: 'API-Erweiterung hinzufügen',
     selector: {
       title: 'API-Erweiterung',

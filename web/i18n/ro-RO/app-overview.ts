@@ -59,7 +59,7 @@ const translation = {
           copyRightPlaceholder: 'Introduceți numele autorului sau al organizației',
           privacyPolicy: 'Politica de confidențialitate',
           privacyPolicyPlaceholder: 'Introduceți link-ul politicii de confidențialitate',
-          privacyPolicyTip: 'Ajută vizitatorii să înțeleagă datele pe care le colectează aplicația, consultați <privacyPolicyLink>Politica de confidențialitate</privacyPolicyLink> a Dify.',
+          privacyPolicyTip: 'Ajută vizitatorii să înțeleagă datele pe care le colectează aplicația, consultați <privacyPolicyLink>Politica de confidențialitate</privacyPolicyLink> a Cyclical.',
         },
       },
       embedded: {
@@ -86,7 +86,7 @@ const translation = {
           name: 'Bifurcați codul clientului, modificați-l și implementați-l pe Vercel (recomandat)',
           step1: 'Bifurcați codul clientului și modificați-l',
           step1Tip: 'Faceți clic aici pentru a bifurca codul sursă în contul dvs. GitHub și a modifica codul',
-          step1Operation: 'Dify-WebClient',
+          step1Operation: 'Cyclical-WebClient',
           step2: 'Implementați pe Vercel',
           step2Tip: 'Faceți clic aici pentru a importa depozitul în Vercel și a implementa',
           step2Operation: 'Importați depozitul',

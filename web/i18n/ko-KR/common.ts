@@ -178,7 +178,7 @@ const translation = {
     sendInvite: '초대 보내기',
     invitedAsRole: '{{role}} 사용자로 초대되었습니다',
     invitationSent: '초대가 전송되었습니다',
-    invitationSentTip: '초대가 전송되었으며, 그들은 Dify에 로그인하여 당신의 팀 데이터에 액세스할 수 있습니다.',
+    invitationSentTip: '초대가 전송되었으며, 그들은 Cyclical에 로그인하여 당신의 팀 데이터에 액세스할 수 있습니다.',
     invitationLink: '초대 링크',
     failedinvitationEmails: '다음 사용자들은 성공적으로 초대되지 않았습니다',
     ok: '확인',
@@ -226,7 +226,7 @@ const translation = {
       openaiHosted: '호스팅된 OpenAI',
       onTrial: '트라이얼 중',
       exhausted: '할당량이 다 사용되었습니다',
-      desc: 'Dify가 제공하는 OpenAI 호스팅 서비스를 사용하면 GPT-3.5와 같은 모델을 사용할 수 있습니다. 트라이얼 할당량이 다 사용되기 전에 다른 모델 제공자를 설정해야 합니다.',
+      desc: 'Cyclical가 제공하는 OpenAI 호스팅 서비스를 사용하면 GPT-3.5와 같은 모델을 사용할 수 있습니다. 트라이얼 할당량이 다 사용되기 전에 다른 모델 제공자를 설정해야 합니다.',
       callTimes: '호출 횟수',
       usedUp: '트라이얼 할당량이 다 사용되었습니다. 다른 모델 제공자를 추가하세요.',
       useYourModel: '현재 사용자 정의 모델 제공자를 사용 중입니다.',
@@ -370,7 +370,7 @@ const translation = {
   apiBasedExtension: {
     title: 'API 기반 확장은 Cyclical 애플리케이션 전체에서 간편한 사용을 위한 설정을 단순화하고 집중적인 API 관리를 제공합니다.',
     link: '사용자 정의 API 기반 확장을 개발하는 방법 배우기',
-    linkUrl: 'https://docs.dify.ai/features/extension/api_based_extension',
+    linkUrl: 'https://cyclical.cn/features/extension/api_based_extension',
     add: 'API 기반 확장 추가',
     selector: {
       title: 'API 기반 확장',

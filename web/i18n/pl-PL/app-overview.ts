@@ -64,7 +64,7 @@ const translation = {
           privacyPolicy: 'Polityka prywatności',
           privacyPolicyPlaceholder: 'Wprowadź link do polityki prywatności',
           privacyPolicyTip:
-            'Pomaga odwiedzającym zrozumieć, jakie dane zbiera aplikacja, zobacz <privacyPolicyLink>Politykę prywatności Dify</privacyPolicyLink>.',
+            'Pomaga odwiedzającym zrozumieć, jakie dane zbiera aplikacja, zobacz <privacyPolicyLink>Politykę prywatności Cyclical</privacyPolicyLink>.',
           customDisclaimer: 'Oświadczenie o ochronie danych',
           customDisclaimerPlaceholder: 'Wprowadź oświadczenie o ochronie danych',
           customDisclaimerTip: 'Niestandardowy tekst oświadczenia będzie wyświetlany po stronie klienta, dostarczając dodatkowych informacji o aplikacji.',
@@ -99,7 +99,7 @@ const translation = {
           step1: 'Skopiuj kod klienta i zmodyfikuj go',
           step1Tip:
             'Kliknij tutaj, aby skopiować kod źródłowy na swoje konto GitHub i zmodyfikować kod',
-          step1Operation: 'Dify-WebClient',
+          step1Operation: 'Cyclical-WebClient',
           step2: 'Wdroż na Vercel',
           step2Tip:
             'Kliknij tutaj, aby zaimportować repozytorium do Vercel i wdrożyć',
