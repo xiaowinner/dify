@@ -200,7 +200,7 @@ services:
 
   # Frontend web application.
   web:
-    image: xiaowinner/dify-web:0.1.6
+    image: xiaowinner/dify-web:0.6.13
     restart: always
     environment:
       CONSOLE_API_URL: ${CONSOLE_API_URL:-}
