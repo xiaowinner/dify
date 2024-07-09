@@ -36,7 +36,7 @@ const reducer = (state: IState, action: any) => {
       return {
         formState: 'initial',
         invitation_code: '',
-        interface_language: 'en-US',
+        interface_language: 'zh-Hans',
         timezone: 'Asia/Shanghai',
       }
     default:
@@ -52,7 +52,7 @@ const OneMoreStep = () => {
   const [state, dispatch] = useReducer(reducer, {
     formState: 'initial',
     invitation_code: '',
-    interface_language: 'en-US',
+    interface_language: 'zh-Hans',
     timezone: 'Asia/Shanghai',
   })
   const { data, error } = useSWR(state.formState === 'processing'
