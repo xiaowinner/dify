@@ -1,4 +1,3 @@
-from collections.abc import Sequence
 from typing import Optional, cast
 
 from core.workflow.entities.base_node_data_entities import BaseNodeData
@@ -12,7 +11,7 @@ from models.workflow import WorkflowNodeExecutionStatus
 
 class IfElseNode(BaseNode):
     _node_data_cls = IfElseNodeData
-    _node_type = NodeType.IF_ELSE
+    node_type = NodeType.IF_ELSE
 
     def _run(self, variable_pool: VariablePool) -> NodeRunResult:
         """
@@ -21,7 +20,7 @@ class IfElseNode(BaseNode):
         :return:
         """
         node_data = self.node_data
-        node_data = cast(IfElseNodeData, node_data)
+        node_data = cast(self._node_data_cls, node_data)
 
         node_inputs = {
             "conditions": []
@@ -139,12 +138,14 @@ class IfElseNode(BaseNode):
         else:
             raise ValueError(f"Invalid comparison operator: {comparison_operator}")
 
-    def process_conditions(self, variable_pool: VariablePool, conditions: Sequence[Condition]):
+    def process_conditions(self, variable_pool: VariablePool, conditions: list[Condition]):
         input_conditions = []
         group_result = []
 
         for condition in conditions:
-            actual_variable = variable_pool.get_any(condition.variable_selector)
+            actual_value = variable_pool.get_variable_value(
+                variable_selector=condition.variable_selector
+            )
 
             if condition.value is not None:
                 variable_template_parser = VariableTemplateParser(template=condition.value)
@@ -152,7 +153,9 @@ class IfElseNode(BaseNode):
                 variable_selectors = variable_template_parser.extract_variable_selectors()
                 if variable_selectors:
                     for variable_selector in variable_selectors:
-                        value = variable_pool.get_any(variable_selector.value_selector)
+                        value = variable_pool.get_variable_value(
+                            variable_selector=variable_selector.value_selector
+                        )
                         expected_value = variable_template_parser.format({variable_selector.variable: value})
                 else:
                     expected_value = condition.value
@@ -162,13 +165,13 @@ class IfElseNode(BaseNode):
             comparison_operator = condition.comparison_operator
             input_conditions.append(
                 {
-                    "actual_value": actual_variable,
+                    "actual_value": actual_value,
                     "expected_value": expected_value,
                     "comparison_operator": comparison_operator
                 }
             )
 
-            result = self.evaluate_condition(actual_variable, expected_value, comparison_operator)
+            result = self.evaluate_condition(actual_value, expected_value, comparison_operator)
             group_result.append(result)
 
         return input_conditions, group_result

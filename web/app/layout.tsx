@@ -3,13 +3,12 @@ import I18nServer from './components/i18n-server'
 import BrowerInitor from './components/browser-initor'
 import SentryInitor from './components/sentry-initor'
 import Topbar from './components/base/topbar'
-import SystemFeaturesInitor from './components/system-features-initor'
 import { getLocaleOnServer } from '@/i18n/server'
 import './styles/globals.css'
 import './styles/markdown.scss'
 
 export const metadata = {
-  title: 'Dify',
+  title: 'Cyclical',
 }
 
 export const viewport: Viewport = {
@@ -48,9 +47,7 @@ const LocaleLayout = ({
         <Topbar />
         <BrowerInitor>
           <SentryInitor>
-            <SystemFeaturesInitor>
-              <I18nServer>{children}</I18nServer>
-            </SystemFeaturesInitor>
+            <I18nServer>{children}</I18nServer>
           </SentryInitor>
         </BrowerInitor>
       </body>

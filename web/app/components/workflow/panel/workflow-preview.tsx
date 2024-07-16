@@ -30,7 +30,11 @@ import cn from '@/utils/classnames'
 import Loading from '@/app/components/base/loading'
 import type { NodeTracing } from '@/types/workflow'
 
-const WorkflowPreview = () => {
+const WorkflowPreview = ({
+  onShowIterationDetail,
+}: {
+  onShowIterationDetail: (detail: NodeTracing[][]) => void
+}) => {
   const { t } = useTranslation()
   const { handleCancelDebugAndPreviewPanel } = useWorkflowInteractions()
   const workflowRunningData = useStore(s => s.workflowRunningData)

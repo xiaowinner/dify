@@ -118,7 +118,7 @@ class AdvancedChatAppGenerateTaskPipeline(BasedGenerateTaskPipeline, WorkflowCyc
         self._stream_generate_routes = self._get_stream_generate_routes()
         self._conversation_name_generate_thread = None
 
-    def process(self):
+    def process(self) -> Union[ChatbotAppBlockingResponse, Generator[ChatbotAppStreamResponse, None, None]]:
         """
         Process generate task pipeline.
         :return:
@@ -141,7 +141,8 @@ class AdvancedChatAppGenerateTaskPipeline(BasedGenerateTaskPipeline, WorkflowCyc
         else:
             return self._to_blocking_response(generator)
 
-    def _to_blocking_response(self, generator: Generator[StreamResponse, None, None]) -> ChatbotAppBlockingResponse:
+    def _to_blocking_response(self, generator: Generator[StreamResponse, None, None]) \
+            -> ChatbotAppBlockingResponse:
         """
         Process blocking response.
         :return:
@@ -171,7 +172,8 @@ class AdvancedChatAppGenerateTaskPipeline(BasedGenerateTaskPipeline, WorkflowCyc
 
         raise Exception('Queue listening stopped unexpectedly.')
 
-    def _to_stream_response(self, generator: Generator[StreamResponse, None, None]) -> Generator[ChatbotAppStreamResponse, Any, None]:
+    def _to_stream_response(self, generator: Generator[StreamResponse, None, None]) \
+            -> Generator[ChatbotAppStreamResponse, None, None]:
         """
         To stream response.
         :return:

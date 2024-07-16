@@ -12,7 +12,7 @@ const translation = {
   datasetDeleted: '知識が削除されました',
   datasetDeleteFailed: '知識の削除に失敗しました',
   didYouKnow: 'ご存知ですか？',
-  intro1: '知識はDifyアプリケーションに統合することができます',
+  intro1: '知識はCyclicalアプリケーションに統合することができます',
   intro2: 'コンテキストとして',
   intro3: '、',
   intro4: 'または',
@@ -37,7 +37,7 @@ const translation = {
       recommend: 'おすすめ',
     },
     invertedIndex: {
-      title: '転置インデックス',
+      title: '逆インデックス',
       description: '効率的な検索に使用される構造です。各用語が含まれるドキュメントまたはWebページを指すように、用語ごとに整理されています。',
     },
     change: '変更',

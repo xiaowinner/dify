@@ -1,5 +1,4 @@
 from typing import Optional, Union, cast
-from decimal import Decimal
 
 from configs import dify_config
 from core.helper.code_executor.code_executor import CodeExecutionException, CodeExecutor, CodeLanguage
@@ -60,8 +59,11 @@ class CodeNode(BaseNode):
         variables = {}
         for variable_selector in node_data.variables:
             variable = variable_selector.variable
-            value = variable_pool.get(variable_selector.value_selector)
-            variables[variable] = value.value if value else None
+            value = variable_pool.get_variable_value(
+                variable_selector=variable_selector.value_selector
+            )
+
+            variables[variable] = value
         # Run code
         try:
             result = CodeExecutor.execute_workflow_code_template(
@@ -116,7 +118,7 @@ class CodeNode(BaseNode):
 
         if isinstance(value, float):
             # raise error if precision is too high
-            if abs(Decimal(str(value)).as_tuple().exponent) > MAX_PRECISION:
+            if len(str(value).split('.')[1]) > MAX_PRECISION:
                 raise ValueError(f'Output variable `{variable}` has too high precision, it must be less than {MAX_PRECISION} digits.')
 
         return value

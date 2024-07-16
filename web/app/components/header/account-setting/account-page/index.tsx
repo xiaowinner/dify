@@ -260,10 +260,10 @@ export default function AccountPage() {
           <div className='my-1 text-[#D92D20] text-sm leading-5'>
             {t('common.account.deleteTip')}
           </div>
-          <div className='mt-3 text-sm leading-5'>
+          {/* <div className='mt-3 text-sm leading-5'>
             <span>{t('common.account.deleteConfirmTip')}</span>
             <a className='text-primary-600 cursor' href={`mailto:support@dify.ai?subject=Delete Account Request&body=Delete Account: ${userProfile.email}`} target='_blank'>support@dify.ai</a>
-          </div>
+          </div> */}
           <div className='my-2 px-3 py-2 rounded-lg bg-gray-100 text-sm font-medium leading-5 text-gray-800'>{`Delete Account: ${userProfile.email}`}</div>
           <div className='pt-6 flex justify-end items-center'>
             <Button className='w-24' onClick={() => setShowDeleteAccountModal(false)}>{t('common.operation.ok')}</Button>

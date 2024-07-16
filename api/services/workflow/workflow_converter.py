@@ -199,8 +199,7 @@ class WorkflowConverter:
             version='draft',
             graph=json.dumps(graph),
             features=json.dumps(features),
-            created_by=account_id,
-            environment_variables=[],
+            created_by=account_id
         )
 
         db.session.add(workflow)

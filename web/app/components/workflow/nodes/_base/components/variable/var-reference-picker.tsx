@@ -9,13 +9,12 @@ import {
 import produce from 'immer'
 import { useStoreApi } from 'reactflow'
 import VarReferencePopup from './var-reference-popup'
-import { getNodeInfoById, isENV, isSystemVar } from './utils'
+import { getNodeInfoById, getVarType, isSystemVar, toNodeAvailableVars } from './utils'
 import cn from '@/utils/classnames'
 import type { Node, NodeOutPutVar, ValueSelector, Var } from '@/app/components/workflow/types'
 import { BlockEnum } from '@/app/components/workflow/types'
 import { VarBlockIcon } from '@/app/components/workflow/block-icon'
 import { Line3 } from '@/app/components/base/icons/src/public/common'
-import { Env } from '@/app/components/base/icons/src/vender/line/others'
 import { Variable02 } from '@/app/components/base/icons/src/vender/solid/development'
 import {
   PortalToFollowElem,
@@ -25,7 +24,6 @@ import {
 import {
   useIsChatMode,
   useWorkflow,
-  useWorkflowVariables,
 } from '@/app/components/workflow/hooks'
 import { VarType as VarKindType } from '@/app/components/workflow/nodes/tool/types'
 import TypeSelector from '@/app/components/workflow/nodes/_base/components/selector'
@@ -73,7 +71,6 @@ const VarReferencePicker: FC<Props> = ({
   const isChatMode = useIsChatMode()
 
   const { getTreeLeafNodes, getBeforeNodesInSameBranch } = useWorkflow()
-  const { getCurrentVariableType, getNodeAvailableVars } = useWorkflowVariables()
   const availableNodes = useMemo(() => {
     return passedInAvailableNodes || (onlyLeafNodeVar ? getTreeLeafNodes(nodeId) : getBeforeNodesInSameBranch(nodeId))
   }, [getBeforeNodesInSameBranch, getTreeLeafNodes, nodeId, onlyLeafNodeVar, passedInAvailableNodes])
@@ -100,15 +97,16 @@ const VarReferencePicker: FC<Props> = ({
     if (availableVars)
       return availableVars
 
-    const vars = getNodeAvailableVars({
+    const vars = toNodeAvailableVars({
       parentNode: iterationNode,
+      t,
       beforeNodes: availableNodes,
       isChatMode,
       filterVar,
     })
 
     return vars
-  }, [iterationNode, availableNodes, isChatMode, filterVar, availableVars, getNodeAvailableVars])
+  }, [iterationNode, availableNodes, isChatMode, filterVar, availableVars, t])
 
   const [open, setOpen] = useState(false)
   useEffect(() => {
@@ -203,15 +201,13 @@ const VarReferencePicker: FC<Props> = ({
       onChange([], varKindType)
   }, [onChange, varKindType])
 
-  const type = getCurrentVariableType({
+  const type = getVarType({
     parentNode: iterationNode,
     valueSelector: value as ValueSelector,
     availableNodes,
     isChatMode,
     isConstant: !!isConstant,
   })
-
-  const isEnv = isENV(value as ValueSelector)
 
   // 8(left/right-padding) + 14(icon) + 4 + 14 + 2 = 42 + 17 buff
   const availableWidth = triggerWidth - 56
@@ -280,7 +276,7 @@ const VarReferencePicker: FC<Props> = ({
                     {hasValue
                       ? (
                         <>
-                          {isShowNodeName && !isEnv && (
+                          {isShowNodeName && (
                             <div className='flex items-center'>
                               <div className='p-[1px]'>
                                 <VarBlockIcon
@@ -296,8 +292,7 @@ const VarReferencePicker: FC<Props> = ({
                           )}
                           <div className='flex items-center text-primary-600'>
                             {!hasValue && <Variable02 className='w-3.5 h-3.5' />}
-                            {isEnv && <Env className='w-3.5 h-3.5 text-util-colors-violet-violet-600' />}
-                            <div className={cn('ml-0.5 text-xs font-medium truncate', isEnv && '!text-gray-900')} title={varName} style={{
+                            <div className='ml-0.5 text-xs font-medium truncate' title={varName} style={{
                               maxWidth: maxVarNameWidth,
                             }}>{varName}</div>
                           </div>

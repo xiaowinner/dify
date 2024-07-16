@@ -26,7 +26,7 @@ const PanelContextmenu = () => {
   const { handlePaneContextmenuCancel } = usePanelInteractions()
   const { handleStartWorkflowRun } = useWorkflowStartRun()
   const { handleAddNote } = useOperator()
-  const { exportCheck } = useDSL()
+  const { handleExportDSL } = useDSL()
 
   useClickAway(() => {
     handlePaneContextmenuCancel()
@@ -105,7 +105,7 @@ const PanelContextmenu = () => {
       <div className='p-1'>
         <div
           className='flex items-center justify-between px-3 h-8 text-sm text-gray-700 rounded-lg cursor-pointer hover:bg-gray-50'
-          onClick={() => exportCheck()}
+          onClick={() => handleExportDSL()}
         >
           {t('app.export')}
         </div>

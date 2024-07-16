@@ -13,7 +13,6 @@ import DebugAndPreview from './debug-and-preview'
 import Record from './record'
 import WorkflowPreview from './workflow-preview'
 import ChatRecord from './chat-record'
-import EnvPanel from './env-panel'
 import cn from '@/utils/classnames'
 import { useStore as useAppStore } from '@/app/components/app/store'
 import MessageLogModal from '@/app/components/base/message-log-modal'
@@ -24,7 +23,6 @@ const Panel: FC = () => {
   const selectedNode = nodes.find(node => node.data.selected)
   const historyWorkflowData = useStore(s => s.historyWorkflowData)
   const showDebugAndPreviewPanel = useStore(s => s.showDebugAndPreviewPanel)
-  const showEnvPanel = useStore(s => s.showEnvPanel)
   const isRestoring = useStore(s => s.isRestoring)
   const {
     enableShortcuts,
@@ -41,7 +39,9 @@ const Panel: FC = () => {
   return (
     <div
       tabIndex={-1}
-      className={cn('absolute top-14 right-0 bottom-2 flex z-10 outline-none')}
+      className={cn(
+        'absolute top-14 right-0 bottom-2 flex z-10 outline-none',
+      )}
       onFocus={disableShortcuts}
       onBlur={enableShortcuts}
       key={`${isRestoring}`}
@@ -83,11 +83,6 @@ const Panel: FC = () => {
       {
         showDebugAndPreviewPanel && !isChatMode && (
           <WorkflowPreview />
-        )
-      }
-      {
-        showEnvPanel && (
-          <EnvPanel />
         )
       }
     </div>

@@ -471,10 +471,8 @@ export const useWorkflowInit = () => {
   const handleGetInitialWorkflowData = useCallback(async () => {
     try {
       const res = await fetchWorkflowDraft(`/apps/${appDetail.id}/workflows/draft`)
+
       setData(res)
-      workflowStore.setState({
-        environmentVariables: res.environment_variables || [],
-      })
       setSyncWorkflowDraftHash(res.hash)
       setIsLoading(false)
     }
@@ -493,7 +491,6 @@ export const useWorkflowInit = () => {
                 features: {
                   retriever_resource: { enabled: true },
                 },
-                environment_variables: [],
               },
             }).then((res) => {
               workflowStore.getState().setDraftUpdatedAt(res.updated_at)

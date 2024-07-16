@@ -10,7 +10,6 @@ from core.app.entities.app_invoke_entities import (
     InvokeFrom,
     WorkflowAppGenerateEntity,
 )
-from core.workflow.callbacks.base_workflow_callback import WorkflowCallback
 from core.workflow.entities.node_entities import SystemVariable
 from core.workflow.nodes.base_node import UserFrom
 from core.workflow.workflow_engine_manager import WorkflowEngineManager
@@ -58,7 +57,7 @@ class WorkflowAppRunner:
 
         db.session.close()
 
-        workflow_callbacks: list[WorkflowCallback] = [WorkflowEventTriggerCallback(
+        workflow_callbacks = [WorkflowEventTriggerCallback(
             queue_manager=queue_manager,
             workflow=workflow
         )]

@@ -114,7 +114,7 @@ const NoteNode = ({
           {
             data.showAuthor && (
               <div className='p-3 pt-0 text-xs text-black/[0.32]'>
-                {data.author}
+                {t('Cyclical')}
               </div>
             )
           }

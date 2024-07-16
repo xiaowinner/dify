@@ -1,4 +1,3 @@
-import contextvars
 import logging
 import os
 import threading
@@ -6,7 +5,7 @@ import uuid
 from collections.abc import Generator
 from typing import Union
 
-from flask import Flask, current_app, g
+from flask import Flask, current_app
 from pydantic import ValidationError
 
 from core.app.app_config.features.file_upload.manager import FileUploadConfigManager
@@ -226,8 +225,6 @@ class AdvancedChatAppGenerator(MessageBasedAppGenerator):
             'queue_manager': queue_manager,
             'conversation_id': conversation.id,
             'message_id': message.id,
-            'user': user,
-            'context': contextvars.copy_context()
         })
 
         worker_thread.start()
@@ -252,9 +249,7 @@ class AdvancedChatAppGenerator(MessageBasedAppGenerator):
                          application_generate_entity: AdvancedChatAppGenerateEntity,
                          queue_manager: AppQueueManager,
                          conversation_id: str,
-                         message_id: str,
-                         user: Account,
-                         context: contextvars.Context) -> None:
+                         message_id: str) -> None:
         """
         Generate worker in a new thread.
         :param flask_app: Flask app
@@ -264,11 +259,7 @@ class AdvancedChatAppGenerator(MessageBasedAppGenerator):
         :param message_id: message ID
         :return:
         """
-        for var, val in context.items():
-            var.set(val)
         with flask_app.app_context():
-            # FIXME: Cannot get current user from here.
-            g.user = user
             try:
                 runner = AdvancedChatAppRunner()
                 if application_generate_entity.single_iteration_run:

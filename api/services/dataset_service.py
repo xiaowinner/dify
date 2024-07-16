@@ -299,7 +299,6 @@ class DatasetService:
             return True
         return False
 
-
     @staticmethod
     def check_dataset_permission(dataset, user):
         if dataset.tenant_id != user.current_tenant_id:

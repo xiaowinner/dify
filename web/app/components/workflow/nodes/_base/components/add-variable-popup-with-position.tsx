@@ -5,12 +5,12 @@ import {
   useRef,
 } from 'react'
 import { useClickAway } from 'ahooks'
+import { useTranslation } from 'react-i18next'
 import { useStore } from '../../../store'
 import {
   useIsChatMode,
   useNodeDataUpdate,
   useWorkflow,
-  useWorkflowVariables,
 } from '../../../hooks'
 import type {
   ValueSelector,
@@ -20,6 +20,7 @@ import type {
 import { useVariableAssigner } from '../../variable-assigner/hooks'
 import { filterVar } from '../../variable-assigner/utils'
 import AddVariablePopup from './add-variable-popup'
+import { toNodeAvailableVars } from '@/app/components/workflow/nodes/_base/components/variable/utils'
 
 type AddVariablePopupWithPositionProps = {
   nodeId: string
@@ -29,6 +30,7 @@ const AddVariablePopupWithPosition = ({
   nodeId,
   nodeData,
 }: AddVariablePopupWithPositionProps) => {
+  const { t } = useTranslation()
   const ref = useRef(null)
   const showAssignVariablePopup = useStore(s => s.showAssignVariablePopup)
   const setShowAssignVariablePopup = useStore(s => s.setShowAssignVariablePopup)
@@ -36,7 +38,6 @@ const AddVariablePopupWithPosition = ({
   const { handleAddVariableInAddVariablePopupWithPosition } = useVariableAssigner()
   const isChatMode = useIsChatMode()
   const { getBeforeNodesInSameBranch } = useWorkflow()
-  const { getNodeAvailableVars } = useWorkflowVariables()
 
   const outputType = useMemo(() => {
     if (!showAssignVariablePopup)
@@ -54,8 +55,9 @@ const AddVariablePopupWithPosition = ({
     if (!showAssignVariablePopup)
       return []
 
-    return getNodeAvailableVars({
+    return toNodeAvailableVars({
       parentNode: showAssignVariablePopup.parentNode,
+      t,
       beforeNodes: [
         ...getBeforeNodesInSameBranch(showAssignVariablePopup.nodeId),
         {
@@ -66,7 +68,7 @@ const AddVariablePopupWithPosition = ({
       isChatMode,
       filterVar: filterVar(outputType as VarType),
     })
-  }, [showAssignVariablePopup, getNodeAvailableVars, getBeforeNodesInSameBranch, isChatMode, outputType])
+  }, [getBeforeNodesInSameBranch, isChatMode, showAssignVariablePopup, t, outputType])
 
   useClickAway(() => {
     if (nodeData._holdAddVariablePopup) {

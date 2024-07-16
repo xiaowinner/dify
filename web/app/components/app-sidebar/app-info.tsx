@@ -28,9 +28,6 @@ import type { CreateAppModalProps } from '@/app/components/explore/create-app-mo
 import { NEED_REFRESH_APP_LIST_KEY } from '@/config'
 import { getRedirection } from '@/utils/app-redirection'
 import UpdateDSLModal from '@/app/components/workflow/update-dsl-modal'
-import type { EnvironmentVariable } from '@/app/components/workflow/types'
-import DSLExportConfirmModal from '@/app/components/workflow/dsl-export-confirm-modal'
-import { fetchPublishedWorkflow } from '@/service/workflow'
 
 export type IAppInfoProps = {
   expand: boolean
@@ -50,7 +47,6 @@ const AppInfo = ({ expand }: IAppInfoProps) => {
   const [showSwitchTip, setShowSwitchTip] = useState<string>('')
   const [showSwitchModal, setShowSwitchModal] = useState<boolean>(false)
   const [showImportDSLModal, setShowImportDSLModal] = useState<boolean>(false)
-  const [secretEnvList, setSecretEnvList] = useState<EnvironmentVariable[]>([])
 
   const mutateApps = useContextSelector(
     AppsContext,
@@ -112,40 +108,16 @@ const AppInfo = ({ expand }: IAppInfoProps) => {
     }
   }
 
-  const onExport = async (include = false) => {
+  const onExport = async () => {
     if (!appDetail)
       return
     try {
-      const { data } = await exportAppConfig({
-        appID: appDetail.id,
-        include,
-      })
+      const { data } = await exportAppConfig(appDetail.id)
       const a = document.createElement('a')
       const file = new Blob([data], { type: 'application/yaml' })
       a.href = URL.createObjectURL(file)
       a.download = `${appDetail.name}.yml`
       a.click()
-    }
-    catch (e) {
-      notify({ type: 'error', message: t('app.exportFailed') })
-    }
-  }
-
-  const exportCheck = async () => {
-    if (!appDetail)
-      return
-    if (appDetail.mode !== 'workflow' && appDetail.mode !== 'advanced-chat') {
-      onExport()
-      return
-    }
-    try {
-      const publishedWorkflow = await fetchPublishedWorkflow(`/apps/${appDetail.id}/workflows/publish`)
-      const list = (publishedWorkflow.environment_variables || []).filter(env => env.value_type === 'secret')
-      if (list.length === 0) {
-        onExport()
-        return
-      }
-      setSecretEnvList(list)
     }
     catch (e) {
       notify({ type: 'error', message: t('app.exportFailed') })
@@ -342,7 +314,7 @@ const AppInfo = ({ expand }: IAppInfoProps) => {
                 </>
               )}
               <Divider className="!my-1" />
-              <div className='h-9 py-2 px-3 mx-1 flex items-center hover:bg-gray-50 rounded-lg cursor-pointer' onClick={exportCheck}>
+              <div className='h-9 py-2 px-3 mx-1 flex items-center hover:bg-gray-50 rounded-lg cursor-pointer' onClick={onExport}>
                 <span className='text-gray-700 text-sm leading-5'>{t('app.export')}</span>
               </div>
               {
@@ -431,19 +403,14 @@ const AppInfo = ({ expand }: IAppInfoProps) => {
             onCancel={() => setShowConfirmDelete(false)}
           />
         )}
-        {showImportDSLModal && (
-          <UpdateDSLModal
-            onCancel={() => setShowImportDSLModal(false)}
-            onBackup={onExport}
-          />
-        )}
-        {secretEnvList.length > 0 && (
-          <DSLExportConfirmModal
-            envList={secretEnvList}
-            onConfirm={onExport}
-            onClose={() => setSecretEnvList([])}
-          />
-        )}
+        {
+          showImportDSLModal && (
+            <UpdateDSLModal
+              onCancel={() => setShowImportDSLModal(false)}
+              onBackup={onExport}
+            />
+          )
+        }
       </div>
     </PortalToFollowElem>
   )

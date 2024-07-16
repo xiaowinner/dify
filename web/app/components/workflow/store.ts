@@ -12,7 +12,6 @@ import type {
 import type { VariableAssignerNodeType } from './nodes/variable-assigner/types'
 import type {
   Edge,
-  EnvironmentVariable,
   HistoryWorkflowData,
   Node,
   RunFile,
@@ -60,7 +59,6 @@ type Shape = {
     edges: Edge[]
     viewport: Viewport
     features: Record<string, any>
-    environmentVariables: EnvironmentVariable[]
   }
   setBackupDraft: (backupDraft?: Shape['backupDraft']) => void
   notInitialWorkflow: boolean
@@ -84,10 +82,6 @@ type Shape = {
   setShortcutsDisabled: (shortcutsDisabled: boolean) => void
   showDebugAndPreviewPanel: boolean
   setShowDebugAndPreviewPanel: (showDebugAndPreviewPanel: boolean) => void
-  showEnvPanel: boolean
-  setShowEnvPanel: (showEnvPanel: boolean) => void
-  environmentVariables: EnvironmentVariable[]
-  setEnvironmentVariables: (environmentVariables: EnvironmentVariable[]) => void
   selection: null | { x1: number; y1: number; x2: number; y2: number }
   setSelection: (selection: Shape['selection']) => void
   bundleNodeSize: { width: number; height: number } | null
@@ -196,10 +190,6 @@ export const createWorkflowStore = () => {
     setShortcutsDisabled: shortcutsDisabled => set(() => ({ shortcutsDisabled })),
     showDebugAndPreviewPanel: false,
     setShowDebugAndPreviewPanel: showDebugAndPreviewPanel => set(() => ({ showDebugAndPreviewPanel })),
-    showEnvPanel: false,
-    setShowEnvPanel: showEnvPanel => set(() => ({ showEnvPanel })),
-    environmentVariables: [],
-    setEnvironmentVariables: environmentVariables => set(() => ({ environmentVariables })),
     selection: null,
     setSelection: selection => set(() => ({ selection })),
     bundleNodeSize: null,

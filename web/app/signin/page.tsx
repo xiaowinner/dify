@@ -1,7 +1,7 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Script from 'next/script'
-import { useSystemFeaturesStore } from '../components/system-features-initor/store'
+import Loading from '../components/base/loading'
 import Forms from './forms'
 import Header from './_header'
 import style from './page.module.css'
@@ -9,8 +9,21 @@ import UserSSOForm from './userSSOForm'
 import cn from '@/utils/classnames'
 import { IS_CE_EDITION } from '@/config'
 
+import type { SystemFeatures } from '@/types/feature'
+import { defaultSystemFeatures } from '@/types/feature'
+import { getSystemFeatures } from '@/service/common'
+
 const SignIn = () => {
-  const { systemFeatures } = useSystemFeaturesStore()
+  const [loading, setLoading] = useState<boolean>(true)
+  const [systemFeatures, setSystemFeatures] = useState<SystemFeatures>(defaultSystemFeatures)
+
+  useEffect(() => {
+    getSystemFeatures().then((res) => {
+      setSystemFeatures(res)
+    }).finally(() => {
+      setLoading(false)
+    })
+  }, [])
 
   return (
     <>
@@ -46,16 +59,32 @@ gtag('config', 'AW-11217955271"');
         }>
           <Header />
 
-          {!systemFeatures.sso_enforced_for_signin && (
+          {loading && (
+            <div className={
+              cn(
+                'flex flex-col items-center w-full grow justify-center',
+                'px-6',
+                'md:px-[108px]',
+              )
+            }>
+              <Loading type='area' />
+            </div>
+          )}
+
+          {!loading && !systemFeatures.sso_enforced_for_signin && (
             <>
               <Forms />
-              <div className='px-8 py-6 text-sm font-normal text-gray-500'>
-                © {new Date().getFullYear()} LangGenius, Inc. All rights reserved.
+              <div className='px-8 py-2 text-sm font-normal text-gray-500'>
+              Copyright © 2023 - {new Date().getFullYear()} Cyclical, All Rights Reserved. 阿芙若科技 版权所有
+              </div>
+              <div className='px-8 pb-6 text-sm font-normal text-gray-500'>
+              莱州市阿芙若信息网络科技有限公司 ICP备案号：
+                <a href = 'https://beian.miit.gov.cn/#/Integrated/index' target='blank' rel='noopener noreferrer'>鲁ICP备2024105088号-1</a>
               </div>
             </>
           )}
 
-          {systemFeatures.sso_enforced_for_signin && (
+          {!loading && systemFeatures.sso_enforced_for_signin && (
             <UserSSOForm protocol={systemFeatures.sso_enforced_for_signin_protocol} />
           )}
         </div>

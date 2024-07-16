@@ -3,13 +3,6 @@ from flask_restful import fields
 from fields.member_fields import simple_account_fields
 from libs.helper import TimestampField
 
-environment_variable_fields = {
-    'name': fields.String,
-    'value': fields.Raw,
-    'value_type': fields.String(attribute='value_type.value'),
-    'exportable': fields.Boolean,
-}
-
 workflow_fields = {
     'id': fields.String,
     'graph': fields.Raw(attribute='graph_dict'),
@@ -20,5 +13,4 @@ workflow_fields = {
     'updated_by': fields.Nested(simple_account_fields, attribute='updated_by_account', allow_null=True),
     'updated_at': TimestampField,
     'tool_published': fields.Boolean,
-    'environment_variables': fields.List(fields.Nested(environment_variable_fields)),
 }

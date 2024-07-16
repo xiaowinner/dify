@@ -8,7 +8,6 @@ import Header from '@/app/components/header'
 import { EventEmitterContextProvider } from '@/context/event-emitter'
 import { ProviderContextProvider } from '@/context/provider-context'
 import { ModalContextProvider } from '@/context/modal-context'
-import LicenseInfo from '@/app/components/system-features-initor/license-info'
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
@@ -23,7 +22,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
                   <Header />
                 </HeaderWrapper>
                 {children}
-                <LicenseInfo />
               </ModalContextProvider>
             </ProviderContextProvider>
           </EventEmitterContextProvider>
@@ -34,7 +32,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
 }
 
 export const metadata = {
-  title: 'Dify',
+  title: 'Cyclical',
 }
 
 export default Layout

@@ -1,8 +1,7 @@
 import logging
 import os
 import time
-from collections.abc import Mapping
-from typing import Any, Optional, cast
+from typing import Optional, cast
 
 from core.app.apps.advanced_chat.app_config_manager import AdvancedChatAppConfig
 from core.app.apps.advanced_chat.workflow_event_trigger_callback import WorkflowEventTriggerCallback
@@ -15,7 +14,6 @@ from core.app.entities.app_invoke_entities import (
 )
 from core.app.entities.queue_entities import QueueAnnotationReplyEvent, QueueStopEvent, QueueTextChunkEvent
 from core.moderation.base import ModerationException
-from core.workflow.callbacks.base_workflow_callback import WorkflowCallback
 from core.workflow.entities.node_entities import SystemVariable
 from core.workflow.nodes.base_node import UserFrom
 from core.workflow.workflow_engine_manager import WorkflowEngineManager
@@ -89,7 +87,7 @@ class AdvancedChatAppRunner(AppRunner):
 
         db.session.close()
 
-        workflow_callbacks: list[WorkflowCallback] = [WorkflowEventTriggerCallback(
+        workflow_callbacks = [WorkflowEventTriggerCallback(
             queue_manager=queue_manager,
             workflow=workflow
         )]
@@ -163,7 +161,7 @@ class AdvancedChatAppRunner(AppRunner):
             self, queue_manager: AppQueueManager,
             app_record: App,
             app_generate_entity: AdvancedChatAppGenerateEntity,
-            inputs: Mapping[str, Any],
+            inputs: dict,
             query: str,
             message_id: str
     ) -> bool:

@@ -1,7 +1,6 @@
 'use client'
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
-import { GlobeAltIcon } from '@heroicons/react/24/outline'
 
 type ISelectProps = {
   items: Array<{ value: string; name: string }>
@@ -20,7 +19,7 @@ export default function Select({
   return (
     <div className="w-56 text-right">
       <Menu as="div" className="relative inline-block text-left">
-        <div>
+        {/* <div>
           <Menu.Button className="inline-flex w-full h-[44px]justify-center items-center
           rounded-lg px-[10px] py-[6px]
           text-gray-900 text-[13px] font-medium
@@ -29,7 +28,7 @@ export default function Select({
             <GlobeAltIcon className="w-5 h-5 mr-1" aria-hidden="true" />
             {item?.name}
           </Menu.Button>
-        </div>
+        </div> */}
         <Transition
           as={Fragment}
           enter="transition ease-out duration-100"

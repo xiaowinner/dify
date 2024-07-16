@@ -405,6 +405,7 @@ class DataSetConfig(BaseSettings):
         default=False,
     )
 
+
 class WorkspaceConfig(BaseSettings):
     """
     Workspace configs

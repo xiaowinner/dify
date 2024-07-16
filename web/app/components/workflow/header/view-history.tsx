@@ -170,7 +170,6 @@ const ViewHistory = ({
                           workflowStore.setState({
                             historyWorkflowData: item,
                             showInputsPanel: false,
-                            showEnvPanel: false,
                           })
                           handleBackupDraft()
                           setOpen(false)

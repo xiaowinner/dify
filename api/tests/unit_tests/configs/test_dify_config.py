@@ -1,4 +1,3 @@
-import os
 from textwrap import dedent
 
 import pytest
@@ -49,9 +48,7 @@ def test_dify_config(example_env_file):
 # This is due to `pymilvus` loading all the variables from the `.env` file into `os.environ`.
 def test_flask_configs(example_env_file):
     flask_app = Flask('app')
-    # clear system environment variables
-    os.environ.clear()
-    flask_app.config.from_mapping(DifyConfig(_env_file=example_env_file).model_dump())  # pyright: ignore
+    flask_app.config.from_mapping(DifyConfig(_env_file=example_env_file).model_dump())
     config = flask_app.config
 
     # configs read from pydantic-settings

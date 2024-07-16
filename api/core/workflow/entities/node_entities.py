@@ -1,4 +1,3 @@
-from collections.abc import Mapping
 from enum import Enum
 from typing import Any, Optional
 
@@ -83,9 +82,9 @@ class NodeRunResult(BaseModel):
     """
     status: WorkflowNodeExecutionStatus = WorkflowNodeExecutionStatus.RUNNING
 
-    inputs: Optional[Mapping[str, Any]] = None  # node inputs
+    inputs: Optional[dict] = None  # node inputs
     process_data: Optional[dict] = None  # process data
-    outputs: Optional[Mapping[str, Any]] = None  # node outputs
+    outputs: Optional[dict] = None  # node outputs
     metadata: Optional[dict[NodeRunMetadataKey, Any]] = None  # node metadata
 
     edge_source_handle: Optional[str] = None  # source handle id of node with multiple branches

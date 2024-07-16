@@ -4,7 +4,6 @@ import { useCallback, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
   RiCloseLine,
-  RiQuestionLine,
 } from '@remixicon/react'
 import { useRouter } from 'next/navigation'
 import { useContext, useContextSelector } from 'use-context-selector'
@@ -205,7 +204,7 @@ const CreateAppModal = ({ show, onSuccess, onClose }: CreateAppDialogProps) => {
               <div className='flex items-center justify-between'>
                 <div className='h-5 text-sm font-medium leading-5'>{t('app.newApp.basic')}</div>
                 <div className='group'>
-                  <RiQuestionLine className='w-[14px] h-[14px] text-gray-400 hover:text-gray-500' />
+                  {/* <RiQuestionLine className='w-[14px] h-[14px] text-gray-400 hover:text-gray-500' /> */}
                   <div
                     className={cn(
                       'hidden z-20 absolute left-[327px] top-[-158px] w-[376px] rounded-xl bg-white border-[0.5px] border-[rgba(0,0,0,0.05)] shadow-lg group-hover:block',
@@ -239,7 +238,7 @@ const CreateAppModal = ({ show, onSuccess, onClose }: CreateAppDialogProps) => {
                   <span className='px-1 rounded-[5px] bg-white border border-black/8 text-gray-500 text-[10px] leading-[18px] font-medium'>BETA</span>
                 </div>
                 <div className='group'>
-                  <RiQuestionLine className='w-[14px] h-[14px] text-gray-400 hover:text-gray-500' />
+                  {/* <RiQuestionLine className='w-[14px] h-[14px] text-gray-400 hover:text-gray-500' /> */}
                   <div
                     className={cn(
                       'hidden z-20 absolute right-[26px] top-[-158px] w-[376px] rounded-xl bg-white border-[0.5px] border-[rgba(0,0,0,0.05)] shadow-lg group-hover:block',

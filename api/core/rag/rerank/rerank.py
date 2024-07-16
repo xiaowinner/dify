@@ -4,7 +4,7 @@ from core.model_manager import ModelInstance
 from core.rag.models.document import Document
 
 
-class RerankModelRunner:
+class RerankRunner:
     def __init__(self, rerank_model_instance: ModelInstance) -> None:
         self.rerank_model_instance = rerank_model_instance
 
