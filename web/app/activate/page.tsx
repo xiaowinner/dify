@@ -27,6 +27,7 @@ const Activate = () => {
         <div className='px-8 pb-6 text-sm font-normal text-gray-500'>
               莱州市阿芙若信息网络科技有限公司 ICP备案号：
           <a href = 'https://beian.miit.gov.cn/#/Integrated/index' target='blank' rel='noopener noreferrer'>鲁ICP备2024105088号-1</a>
+          <a href = 'http://www.beian.gov.cn/portal/index.do' target='blank' rel='noopener noreferrer'>       鲁公网安备37068302000567号</a>
         </div>
       </div>
     </div>
